@@ -223,7 +223,6 @@ z =    f"""
        {texto3}
          """
 
-
 import os
 
 headers = {
