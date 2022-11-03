@@ -367,8 +367,8 @@ def run():
 
 if __name__ == "__main__":
         st.set_page_config(
-        page_title="NT ⚽🔮",
-        page_icon="👋",
+        page_title="NT ",
+        page_icon="1",
         layout="wide"
         )
         run()
