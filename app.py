@@ -42,7 +42,8 @@ dic_status = {
     'Second Half':'2T',
     'Halftime':'Entretiempo',
     'First Half':'1T',
-    'Penalty in progress' :'Penal en progreso'
+    'Penalty in progress' :'Penal en progreso',
+    'Break Time' :'Break Time'
     }
 
 def get_statistics_live(timestamp , fixture_id , team_home_id , team_away_id):
