@@ -227,8 +227,8 @@ z =    f"""
 import os
 
 headers = {
-    'x-rapidapi-host': "v3.football.api-sports.io",
-    'x-rapidapi-key': "903a0d7149864011a7b81adaa2c060d9"
+    'x-rapidapi-host': = st.secrets.db_credentials.host,
+    'x-rapidapi-key': st.secrets.db_credentials.key
     }
 
 
@@ -368,8 +368,8 @@ def run():
 
 if __name__ == "__main__":
         st.set_page_config(
-        page_title="NT ",
-        page_icon="1",
+        page_title="NT ⚽🔮",
+        page_icon="👋",
         layout="wide"
         )
         run()
