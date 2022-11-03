@@ -1,0 +1,20 @@
+docker run -d --name postgresql -e POSTGRES_USER=fernpena -e POSTGRES_PASSWORD=2021315144 -p 443:5432 bitnami/postgresql:latest
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Crear una instancia de PHP PgAdmin utilizando el siguiente comando:
+docker run -d --name phppgadmin -e DATABASE_HOST=34.136.209.155 -e DATABASE_PORT_NUMBER=443 -p 80:8080 bitnami/phppgadmin:latest DATABASE_HOST debe ser la IP pública de la instancia
