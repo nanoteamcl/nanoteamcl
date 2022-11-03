@@ -134,9 +134,9 @@ def create_image_fix_livescore1(fix , elapsed):
     team_away_id = str(int( fix['teams']['away']['id']  ))
     try:
         image_name_home = 'team_{}_logo.png'.format(team_home_id)
-        image_home = plt.imread('media_teams\\'+image_name_home)
+        image_home = plt.imread('./media_teams/'+image_name_home)
         image_name_away = 'team_{}_logo.png'.format(team_away_id)
-        image_away = plt.imread( '\\media_teams\\'+image_name_away)
+        image_away = plt.imread( './media_teams/'+image_name_away)
 
         imagebox_home = OffsetImage(image_home, zoom = zoom) # tamaño imagen
         xy_home = [ x_shield_home , y_shield ] # Coordenadas del centro de la imagen
@@ -149,12 +149,12 @@ def create_image_fix_livescore1(fix , elapsed):
 
 
     except:
-        image = plt.imread('media_teams\\image_not_available.png')
+        image = plt.imread('./media_teams./image_not_available.png')
         imagebox = OffsetImage(image, zoom = zoom) # tamaño imagen
         xy = [ x_shield_home,y_shield ] # Coordenadas del centro de la imagen
         ab_image = AnnotationBbox(imagebox, xy, xybox=(0, 0), boxcoords='offset points', bboxprops = dict(visible = False))
         ax.add_artist(ab_image)
-        image = plt.imread('media_teams\\image_not_available.png')
+        image = plt.imread('./media_teams/image_not_available.png')
         imagebox = OffsetImage(image, zoom = zoom) # tamaño imagen
         xy = [ x_shield_away,y_shield ] # Coordenadas del centro de la imagen
         ab_image = AnnotationBbox(imagebox, xy, xybox=(0, 0), boxcoords='offset points', bboxprops = dict(visible = False))
