@@ -227,7 +227,7 @@ z =    f"""
 import os
 
 headers = {
-    'x-rapidapi-host': = st.secrets.db_credentials.host,
+    'x-rapidapi-host': st.secrets.db_credentials.host,
     'x-rapidapi-key': st.secrets.db_credentials.key
     }
 
