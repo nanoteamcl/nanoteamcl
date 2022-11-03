@@ -179,21 +179,21 @@ def create_image_fix_livescore1(fix , elapsed):
     #    conn.request("GET", "/fixtures/events?fixture=".format(967823), headers=headers)
     #    res = conn.getresponse()
     #    data_events = json.loads(res.read()):
-    kk0 = 0
+    # kk0 = 0
     
-    x_events_home = 10
-    x_events_away = 20
-    y_events = 20
-    y_events_delta = 1
-    events1 = [ x for x in fix['events'] if  x['type'] == 'Goal'  ]
-    if len( events1  )>0:
-        for l0 in range(len(  events1 )):
-            if events1[l0]['team']['id'] ==  fix['teams']['home']['id']:
-                plt.text( x_events_home , y_events -l0*y_events_delta , '{} {}'.format(events1[l0]['detail'] , str(events1[l0]['time']['elapsed']))  ,fontsize = 10,ha = 'center',color = '#64b252', fontproperties=fontname,
-                       path_effects=[path_effects.withSimplePatchShadow(offset=(0.3, - 0.3)) ,  path_effects.Normal(), path_effects.Stroke(linewidth=0.2, foreground='black')])
-            else:
-                plt.text( x_events_away , y_events -l0*y_events_delta , events1[l0]['detail'] +' ' +str(events1[l0]['time']['elapsed'])    ,fontsize = 10,ha = 'center',color = '#64b252', fontproperties=fontname,
-                       path_effects=[path_effects.withSimplePatchShadow(offset=(0.3, - 0.3)) ,  path_effects.Normal(), path_effects.Stroke(linewidth=0.2, foreground='black')])
+    # x_events_home = 10
+    # x_events_away = 20
+    # y_events = 20
+    # y_events_delta = 1
+    # events1 = [ x for x in fix['events'] if  x['type'] == 'Goal'  ]
+    # if len( events1  )>0:
+    #     for l0 in range(len(  events1 )):
+    #         if events1[l0]['team']['id'] ==  fix['teams']['home']['id']:
+    #             plt.text( x_events_home , y_events -l0*y_events_delta , '{} {}'.format(events1[l0]['detail'] , str(events1[l0]['time']['elapsed']))  ,fontsize = 10,ha = 'center',color = '#64b252', fontproperties=fontname,
+    #                    path_effects=[path_effects.withSimplePatchShadow(offset=(0.3, - 0.3)) ,  path_effects.Normal(), path_effects.Stroke(linewidth=0.2, foreground='black')])
+    #         else:
+    #             plt.text( x_events_away , y_events -l0*y_events_delta , events1[l0]['detail'] +' ' +str(events1[l0]['time']['elapsed'])    ,fontsize = 10,ha = 'center',color = '#64b252', fontproperties=fontname,
+    #                    path_effects=[path_effects.withSimplePatchShadow(offset=(0.3, - 0.3)) ,  path_effects.Normal(), path_effects.Stroke(linewidth=0.2, foreground='black')])
                 
 
 
