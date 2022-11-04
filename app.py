@@ -242,7 +242,7 @@ def run():
     res = conn.getresponse()
     data = res.read()    
     zz = deepcopy(json.loads(data)) 
-    response_fixtures_live = { '{}-{}'.format(zz['response'][j]['fixture']['timestamp'] , zz['response'][j]['fixture']['id']) : zz['response'][j] for j in range( min(100,len(zz['response']))  ) }
+    response_fixtures_live = { '{}-{}'.format(zz['response'][j]['fixture']['timestamp'] , zz['response'][j]['fixture']['id']) : zz['response'][j] for j in range( min(10,len(zz['response']))  ) }
     fixtures_live = st.empty()
     list_zz = {}
     list_img_live = {}
@@ -251,18 +251,18 @@ def run():
         list_img_live[key] = st.empty()
 
     while True:
-            time.sleep(1)
-
+        time.sleep(0.5)
+        try:
             conn = http.client.HTTPSConnection("v3.football.api-sports.io")
             conn.request("GET", "/fixtures?live=all", headers=headers)
             res = conn.getresponse()
             data = res.read()
             zz = deepcopy(json.loads(data)) 
-            response_fixtures_live = { '{}-{}'.format(zz['response'][j]['fixture']['timestamp'] , zz['response'][j]['fixture']['id']) : zz['response'][j] for j in range( min(100,len(zz['response']))  )  }
+            response_fixtures_live = { '{}-{}'.format(zz['response'][j]['fixture']['timestamp'] , zz['response'][j]['fixture']['id']) : zz['response'][j] for j in range( min(10,len(zz['response']))  )  }
             time.sleep(1)
             
             units = 6
-            response_fixtures_statistics_live = { '{}-{}'.format(zz['response'][j]['fixture']['timestamp'] , zz['response'][j]['fixture']['id']) : (zz['response'][j]['fixture']['timestamp'] , zz['response'][j]['fixture']['id'] , zz['response'][j]['teams']['home']['id'] , zz['response'][j]['teams']['away']['id'] ) for j in range( min(100,len(zz['response']))  ) if  zz['response'][j]['league']['id'] in coverage_statistics }
+            response_fixtures_statistics_live = { '{}-{}'.format(zz['response'][j]['fixture']['timestamp'] , zz['response'][j]['fixture']['id']) : (zz['response'][j]['fixture']['timestamp'] , zz['response'][j]['fixture']['id'] , zz['response'][j]['teams']['home']['id'] , zz['response'][j]['teams']['away']['id'] ) for j in range( min(10,len(zz['response']))  ) if  (zz['response'][j]['league']['id'] in coverage_statistics) }
             keys = list(response_fixtures_statistics_live.keys())
             PP = math.ceil( len(keys)/units )+1
             KEYS = [keys[i*PP:(i+1)*PP] for i in range(math.ceil( len(keys)/PP  ))]
@@ -363,7 +363,8 @@ def run():
                        list_img_live[key].columns([1,5,3])[2].pyplot(   create_image_statistics_fix_livescore1( statistics_live , key))
                     except:
                         pass
-
+        except:
+            pass
 
 if __name__ == "__main__":
         st.set_page_config(
